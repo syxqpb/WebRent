@@ -1,0 +1,368 @@
+﻿@{ ViewData["Title"] = "Заказы (Админ панель)"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Панель администратора</h1>
+            <ul class="templatemo-accordion">
+
+
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Orders">Текущие заказы</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="OrdersHistory">История заказов</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="BuyersList">Пользователи</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="MasterDetails">Сотрудники</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Services">Сервисы сотрудников</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="EquipmentDetails">Оборудование</a>
+                <br />
+
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+
+            <!-- Код корзины, Имя заказчика, Дата взятия, Дата сдачи, оборудование(список), имя корзины, стоимость, ГАЛОЧКА(вернули ли) || или кнопки ОТПРАВЛЕНО и ЗАВЕРШИТЬ -->
+            
+            <ul class="list-unstyled templatemo-accordion">
+
+                <!-- Форэч списка заказов -->
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Заказ №25
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <!-- Информация о корзине заказа -->
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Код заказа/корзины:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>АЙДИШНИК</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Заказчик:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>Руслан Алибекович</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата взятия:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>03.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата сдачи:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>10.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Стонкс:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>250 руб.</strong></p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <table class="table">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Имя</th>
+                                                <th>Цена</th>
+                                                <th>***</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP5</td>
+                                                <td>100 руб.</td>
+                                            </tr>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP4</td>
+                                                <td>90 руб.</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    <!-- Кнопки -->
+                                    <div class="row">
+                                        <div class="col-lg-5">
+
+                                            <!-- Запасное место для кнопки -->
+
+                                        </div>
+                                        <div class="col-lg-5">
+
+                                            <a asp-controller="" asp-action="" class="btn btn-success btn-lg">Завершить</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <!-- Форэч списка заказов -->
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Заказ №27
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <!-- Информация о корзине заказа -->
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Код заказа/корзины:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>АЙДИШНИК</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Заказчик:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>Руслан Алибекович</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата взятия:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>03.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата сдачи:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>10.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Стонкс:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>250 руб.</strong></p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <table class="table">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Имя</th>
+                                                <th>Цена</th>
+                                                <th>***</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP5</td>
+                                                <td>100 руб.</td>
+                                            </tr>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP4</td>
+                                                <td>90 руб.</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    <!-- Кнопки -->
+                                    <div class="row">
+                                        <div class="col-lg-5">
+
+                                            <!-- Запасное место для кнопки -->
+
+                                        </div>
+                                        <div class="col-lg-5">
+
+                                            <a asp-controller="" asp-action="" class="btn btn-success btn-lg">Завершить</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <!-- Форэч списка заказов -->
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Заказ №28
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <!-- Информация о корзине заказа -->
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Код заказа/корзины:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>АЙДИШНИК</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Заказчик:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>Руслан Алибекович</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата взятия:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>03.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Дата сдачи:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>10.06.2021</strong></p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <h6>Стонкс:</h6>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <p class="text"><strong>250 руб.</strong></p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <table class="table">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Имя</th>
+                                                <th>Цена</th>
+                                                <th>***</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP5</td>
+                                                <td>100 руб.</td>
+                                            </tr>
+                                            <!-- тут фореч -->
+                                            <tr>
+                                                <td>Камера MP4</td>
+                                                <td>90 руб.</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    <!-- Кнопки -->
+                                    <div class="row">
+                                        <div class="col-lg-5">
+
+                                            <!-- Запасное место для кнопки -->
+
+                                        </div>
+                                        <div class="col-lg-5">
+
+                                            <a asp-controller="" asp-action="" class="btn btn-success btn-lg">Завершить</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@model BuyerViewModel
+
+@{ ViewData["Title"] = "Профиль"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Профиль</h1>            
+        </div>
+
+
+        @* Блок внутренности *@
+
+        <div class="col-lg-9">  
+            <!-- Start  -->
+            <div class="container py-5">
+                <div class="row py-5">
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Имя:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>Руслан</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Фамилия:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>Алигархович</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Email:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>ruslan@site.ru</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Пасспортный номер:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>AB1234567</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Телефон:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>+375259371292</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Адрес:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>г. Гомель, СвалкаСтэйт 1а</strong></p>
+                        </li>
+                    </ul>
+
+                    <div class="row mb-md-5">
+                        <div class="col-lg-5">
+                            <a asp-controller="Buyers" asp-action="EditProfile" class="btn btn-success btn-lg">Редактировать информацию</a>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <a asp-controller="Buyers" asp-action="EditPassword" class="btn btn-success btn-lg">Изменить пароль</a>
+                        </div>
+                    </div>
+
+
+
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Номер заказ</th>
+                                <th>Дата аренды</th>
+                                <th>Дата возврата</th>
+                                <th>Стоимость заказа</th>
+                                <th>Кол-во оборудования</th>
+                                <th>Доставка</th>
+                                <th> </th> <!-- Поле для кнопки -->
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- тут фореч -->
+                            <tr>
+                                <td>25</td>
+                                <td>20.10.2021</td>
+                                <td>22.10.2021</td>
+                                <td>430 руб</td>
+                                <td>5</td>
+                                <td>Есть</td>
+                                <td><a asp-controller="Buyers" asp-action="HistoryDetail" class="btn btn-success btn-lg px-3">Подробнее</a></td>
+                            </tr>
+
+                            <!-- тут фореч -->
+                            <tr>
+                                <td>05</td>
+                                <td>09.01.2021</td>
+                                <td>10.01.2021</td>
+                                <td>230 руб</td>
+                                <td>3</td>
+                                <td>Нету</td>
+                                <td><a asp-controller="Buyers" asp-action="HistoryDetail" class="btn btn-success btn-lg px-3">Подробнее</a></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

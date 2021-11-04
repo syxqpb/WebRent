@@ -1,0 +1,81 @@
+﻿@page
+@model WebTest2ebt.UI.Pages.Identity.Account.RegisterModel
+@{ ViewData["Title"] = "Регистрация"; }
+
+<!-- Start REG page -->
+<div class="container-fluid bg-light py-3">
+    <div class="col-md-6 m-auto text-center">
+        <h1 class="h1">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="container py-3">
+    <div class="row py-3">
+        <form class="col-md-9 m-auto" asp-route-returnUrl="@Model.ReturnUrl" method="post" role="form">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control mt-1" placeholder="Email">
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="Input.FirstName"></label>
+                    <input asp-for="Input.FirstName" class="form-control mt-1" placeholder="Имя">
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="Input.SecondName"></label>
+                    <input asp-for="Input.SecondName" class="form-control mt-1" placeholder="Фамилия">
+                    <span asp-validation-for="Input.SecondName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Address"></label>
+                <input asp-for="Input.Address" class="form-control mt-1" placeholder="Адрес">
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.PhoneNumber"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control mt-1" placeholder="+375290001122">
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.PassportNumber"></label>
+                <input asp-for="Input.PassportNumber" class="form-control mt-1" placeholder="AB1234567">
+                <span asp-validation-for="Input.PassportNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control mt-1" placeholder="Пароль">
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control mt-1" placeholder="Повторите пароль">
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col text-end mt-2">
+                    <button type="submit" class="btn btn-success btn-lg px-3">Зарегистрировать</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<!-- End REG page -->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

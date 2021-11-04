@@ -1,0 +1,129 @@
+﻿@{ ViewData["Title"] = "Редактирование информации о товаре (Админ панель)";}
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Панель администратора</h1>
+            <ul class="templatemo-accordion">
+
+
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Orders">Текущие заказы</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="OrdersHistory">История заказов</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="BuyersList">Пользователи</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="MasterDetails">Сотрудники</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Services">Сервисы сотрудников</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="EquipmentDetails">Оборудование</a>
+                <br />
+
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+
+            <!-- Start  -->
+            <div class="container py-5">
+                <div class="row py-5">
+
+
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+                        <h1>Редактирование товара</h1>
+                        <div class="mb-3">
+                            <label>Имя товара</label>
+                            <input type="text" class="form-control mt-1" placeholder="Имя товара" value="Линза 300">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Цена</label>
+                            <input type="number" class="form-control mt-1" placeholder="Цена" value=300>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="inputsubject">Характеристика 1</label>
+                            <input type="text" class="form-control mt-1" placeholder="Характеристика 1" value="Красивый">
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Сохранить</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+                    @* Форма редактирования изображений *@
+
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+                        <h1>Редактирование фотографий</h1>
+
+
+                        <!-- Форечем вот этот ров-->
+                        <div class="row mb-3">
+                            <div class="col-lg-7">
+                                <label>Изображение:</label>
+                                <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Удалить изображение</button>
+                            </div>
+                        </div>
+
+                        <!-- Форечем вот этот ров-->
+                        <div class="row mb-3">
+                            <div class="col-lg-7">
+                                <label>Изображение:</label>
+                                <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Удалить изображение</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Сохранить изображения</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                    @* Форма добавления *@
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+
+                        <h1>Добавление изображения</h1>
+
+                        <div class="mb-3">
+                            <label>Изображение:</label>
+                            <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Добавить изображения</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <!-- End  -->
+        </div>
+    </div>
+</div>

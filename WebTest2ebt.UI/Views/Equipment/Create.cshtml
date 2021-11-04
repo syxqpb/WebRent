@@ -1,0 +1,48 @@
+﻿@model WebTest2ebt.UI.Models.EquipmentViewModel
+
+@{ ViewData["Title"] = "Create"; }
+
+<h1>Create</h1>
+
+<h4>Equipment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptDate" class="control-label">Дата поступления</label>
+                <input asp-for="ReceiptDate" class="form-control" />
+                <span asp-validation-for="WriteOffDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WriteOffDate" class="control-label">Дата списания</label>
+                <input asp-for="WriteOffDate" class="form-control" />
+                <span asp-validation-for="WriteOffDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Сondition" class="control-label">Состояние единицы техники</label>
+                <input asp-for="Сondition" class="form-control" />
+                <span asp-validation-for="Сondition" class="text-danger"></span>
+            </div>           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>$(generateFieldInputs);
+        decimalValidation();</script>
+}

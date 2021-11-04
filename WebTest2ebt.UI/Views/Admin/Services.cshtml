@@ -1,0 +1,92 @@
+﻿@{ ViewData["Title"] = "Сервисы сотрудников (Админ панель)"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Панель администратора</h1>
+            <ul class="templatemo-accordion">
+
+
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Orders">Текущие заказы</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="OrdersHistory">История заказов</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="BuyersList">Пользователи</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="MasterDetails">Сотрудники</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Services">Сервисы сотрудников</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="EquipmentDetails">Оборудование</a>
+                <br />
+
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+
+
+
+            @* Форма редактирования сервисов мастера *@
+
+
+            <form class="col-md-9 m-auto mb-5" method="post" role="form">
+                <h1>Редактирование сервисов</h1>
+
+
+                <!-- Форечем вот этот ров-->
+                <div class="row mb-3">
+                    <div class="col-lg-7">
+                        <label>Сервис:</label>
+                        <input type="text" class="form-control mt-1" placeholder="Имя сервиса" value="ФотоШтаб">
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Удалить сервис</button>
+                    </div>
+                </div>
+
+                <!-- Форечем вот этот ров-->
+                <div class="row mb-3">
+                    <div class="col-lg-7">
+                        <label>Сервис:</label>
+                        <input type="text" class="form-control mt-1" placeholder="Имя сервиса" value="ВидеоШтаб">
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Удалить сервис</button>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Сохранить сервисы</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+            @* Форма добавления сервиса *@
+
+            <form class="col-md-9 m-auto mb-5" method="post" role="form">
+
+                <h1>Добавление сервиса</h1>
+
+                <div class="mb-3">
+                    <label>Сервис:</label>
+                    <input type="text" class="form-control mt-1" placeholder="Имя сервиса" value="">
+                </div>
+
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Добавить сервис</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@model MastersViewModel
+
+@{ ViewData["Title"] = "Работники"; }
+
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+                
+
+        <div>
+            <div class="row">
+                @foreach (var item in Model.Masters)
+                {
+    <div class="col-md-4">
+        <div class="card mb-4 product-wap rounded-0">
+            <div class="card rounded-0">
+                <!-- тут по идее не ордермастер, насчёт портфолио хз-->
+                @if (item.PhotosAndVideos.Count() != default)
+                {
+            <img class="card-img rounded-0 img-fluid" src="@item.PhotosAndVideos.First().PathToFile"> }
+        else
+        {
+            <img class="card-img rounded-0 img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H9LgUZtfSeY2xJieiMuJdbQTToIcwDOkFTSq9ewjtBY6n_ArugarHah0jv6Q7dKtt0o&usqp=CAU">}
+            </div>
+            <div class="card-body">
+                <a asp-controller="Master" asp-action="Details" asp-route-id="@item.Id" class="h3 text-decoration-none">@item.FirstName @item.LastName</a>
+                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                    <!-- Место для дополнительного описания если понадобитса -->
+                    <li></li>
+                    <li class="pt-2">
+                    </li>
+                </ul>
+
+                <p class="text-center mb-0">@item.Price р</p>
+            </div>
+        </div>
+    </div>}
+            </div>
+            <div div="row">
+                <ul class="pagination pagination-lg justify-content-end">
+                    @{ const int PagesLinks = 3, DefaultPageCount = 0;
+
+                                    if (Model.PageInfo.PageNumber - PagesLinks > DefaultPageCount && Model.Masters.Count() > DefaultPageCount)
+                                    {
+                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="1" class="page-link">1</a></li>
+                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber - 1)" class="page-link">Предыдущая</a></li> for (int index = PagesLinks; index > DefaultPageCount; index--)
+                                                        {
+                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber - index)" class="page-link">@(Model.PageInfo.PageNumber - index)</a></li> }
+                                                    }
+                                                    else
+                                                    {
+                                                        for (int index = 1; index < Model.PageInfo.PageNumber; index++)
+                                                        {
+                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@index" class="page-link">@index</a></li> }
+                                                    }
+                                        @if (Model.PageInfo.TotalItems > 6)
+                                        {
+                            <li class="page-item active"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@Model.PageInfo.PageNumber" class="page-link">@Model.PageInfo.PageNumber</a></li>} if (Model.PageInfo.PageNumber + PagesLinks <= Model.PageInfo.TotalPages)
+                                                    {
+                                                        for (int index = DefaultPageCount + 1; index <= PagesLinks; index++)
+                                                        {
+                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber + index)" class="page-link">@(Model.PageInfo.PageNumber + index)</a></li> }
+
+                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber + 1)" class="page-link">Следующая</a></li>
+                                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@Model.PageInfo.TotalPages" class="page-link">@Model.PageInfo.TotalPages</a></li> }
+                                                                    else
+                                                                    {
+                                                                        for (int index = Model.PageInfo.PageNumber + 1; index <= Model.PageInfo.TotalPages; index++)
+                                                                        {
+                                                        <li class="page-item"><a asp-controller="Master" asp-action="Index" asp-route-pageNumber="@index" class="page-link">@index</a></li> }
+                                                                    } }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Content -->

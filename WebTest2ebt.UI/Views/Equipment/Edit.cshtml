@@ -1,0 +1,56 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@using WebTest2ebt.BusinessLogicLayer.Models
+@model IEnumerable<EquipmentsViewModel>
+
+@{ ViewData["Title"] = "Оборудование"; }
+
+
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Categories</h1>
+            <ul class="list-unstyled templatemo-accordion">
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Аппаратура
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li><a class="text-decoration-none" href="#">Камеры</a></li>
+                        <li><a class="text-decoration-none" href="#">Микрофоны</a></li>
+                    </ul>
+                </li>
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Аксессуары
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li><a class="text-decoration-none" href="#">Объективы</a></li>
+                        <li><a class="text-decoration-none" href="#">Световая аппаратура</a></li>
+                        <li><a class="text-decoration-none" href="#">Аккумуляторы</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        
+
+</div>
+</div>
+<!-- End Content -->
+<hr />
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>decimalValidation();</script>
+}

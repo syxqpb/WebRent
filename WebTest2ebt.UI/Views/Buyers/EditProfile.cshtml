@@ -1,0 +1,68 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@model BuyerViewModel
+
+@{ ViewData["Title"] = "Редактирование профиля"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Редактирование профиля</h1>
+        </div>
+
+
+        @* Блок внутренности *@
+
+        <div class="col-lg-9">
+            <!-- Start  -->
+            <div class="container py-5">
+                <div class="row py-5">
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+
+                        <div class="mb-3">
+                            <label>Имя</label>
+                            <input type="text" class="form-control mt-1" placeholder="Имя" value="Пётр">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Фамилия</label>
+                            <input type="text" class="form-control mt-1" placeholder="Фамилия" value="Гуёвич">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Телефон</label>
+                            <input type="text" class="form-control mt-1" placeholder="Телефон" value="+375259371292">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control mt-1" placeholder="Email" value="keklolazaz@site.ru">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Паспортный номер</label>
+                            <input type="text" class="form-control mt-1" placeholder="Паспортный номер" value="AB1234567">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Адрес</label>
+                            <input type="text" class="form-control mt-1" placeholder="Адрес" value="База десиптиконов">
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Сохранить информацию</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

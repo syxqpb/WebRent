@@ -1,0 +1,115 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@model BuyerViewModel
+
+@{ ViewData["Title"] = "Подробная информация о заказе"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Подробная информация о заказе</h1>            
+        </div>
+
+
+        @* Блок внутренности *@
+
+        <div class="col-lg-9">  
+            <!-- Start  -->
+            <div class="container py-5">
+                <div class="row py-5">
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Номер заказа:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>25</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Дата аренды:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>20.10.2021</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Дата возврата:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>22.10.2021</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Стоимость заказа:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>430 руб</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Кол-во оборудования:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>5</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Доставка:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>Есть</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>Описание к заказу:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text"><strong>Это был очень сложный год для нас, 
+                                но в следующем все проблемы мы превозможем</strong></p>
+                        </li>
+                    </ul>
+
+
+
+
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Цена</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- тут фореч -->
+                            <tr>
+                                <td>Камера MP5</td>
+                                <td>100 руб.</td>
+                            </tr>
+                            <!-- тут фореч -->
+                            <tr>
+                                <td>Камера MP4</td>
+                                <td>90 руб.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿
+@{ ViewData["Title"] = "Отзывы"; }
+
+
+<!-- Start Content Page -->
+<div class="container-fluid bg-light py-5">
+    <div class="col-md-6 m-auto text-center">
+        <h1 class="h1">@ViewData["Title"]</h1>       
+    </div>
+</div>
+
+<section class="bg-success py-5">
+    
+    <div class="container">
+        <div class="row mb-5">
+            <!--тут фореач на все комменты -->
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative bg-body">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Анна Петушенко</strong>
+                        <h3 class="mb-0">Техника просто - супер!</h3>
+                        <div class="mb-1 text-muted">20.05.2021</div>
+                        <p class="card-text mb-auto">Я мягко говоря в ахуе от уровня работы ваших проффесионалов, особенно Саша, ты - ювелир. Очень много букоф, очень много текса, прям реально много. Хотите прикол? Я ЛЯГУШКА, ЫЫЫЫЫЫЫ. Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative bg-body">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Анна Петушенко</strong>
+                        <h3 class="mb-0">Техника просто - супер!</h3>
+                        <div class="mb-1 text-muted">20.05.2021</div>
+                        <p class="card-text mb-auto">Я мягко говоря в ахуе от уровня работы ваших проффесионалов, особенно Саша, ты - ювелир. Очень много букоф, очень много текса, прям реально много. Хотите прикол? Я ЛЯГУШКА, ЫЫЫЫЫЫЫ. Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@ Я @@ ТЫ @@</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <form class="col-md-9 m-auto" asp-controller="Home" asp-action="SendFeedback">
+                <div class="row">
+                    <div class="form-group col-md-4 mb-3">
+                        <label for="inputname">Фамилия</label>
+                        <input type="text" class="form-control mt-1" id="name" name="SecondName" placeholder="Фамилия">
+                    </div>
+                    <div class="form-group col-md-4 mb-3">
+                        <label for="inputname">Имя</label>
+                        <input type="text" class="form-control mt-1" id="name" name="FirstName" placeholder="Имя">
+                    </div>
+                    <div class="form-group col-md-5 mb-3">
+                        <label for="inputemail">Email</label>
+                        <input type="email" class="form-control mt-1" id="email" name="Email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputsubject">Телефон</label>
+                    <input type="text" class="form-control mt-1" id="subject" name="PhoneNumber" placeholder="Телефон">
+                </div>
+                <div class="mb-3">
+                    <label for="inputsubject">Тема вопроса</label>
+                    <input type="text" class="form-control mt-1" id="subject" name="Topic" placeholder="Тема">
+                </div>
+                <div class="mb-3">
+                    <label for="inputmessage">Описание</label>
+                    <textarea class="form-control mt-1" id="message" name="FeedBackMessage" placeholder="Описание" rows="8"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="btn btn-light btn-lg px-3">Отправить</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
