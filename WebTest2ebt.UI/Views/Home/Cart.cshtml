@@ -1,0 +1,102 @@
+﻿@model WebTest2ebt.UI.Models.CartViewModel
+
+@{ ViewData["Title"] = "Корзина"; }
+
+<div class="container py-5">
+
+    <h2>Ваша корзина</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Цена</th>
+                <th>Кол-во</th>
+                <th>***</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var line in Model.Equipments)
+            {
+            <tr>
+                <td class="text-center">@line.Name</td>
+                <td class="text-left">@($"{line.Сost} руб")</td>
+                <td class="text-left">1 шт</td>
+                <td>
+                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="equipmentId"
+                               value="@line.Id" />
+                        <input type="hidden" name="returnUrl"
+                               value="@Model.ReturnUrl" />
+                        <button type="suЬmit" class="btn Ьtn-sm Ьtn-danger">
+                            Remove
+                            </button>
+                            </form>
+                </td>
+            </tr>
+                
+        }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right" id="costWithDelivery">Итого: @Model.Equipments.Select(item => item.Сost).Sum() р</td> 
+                    
+                </tr>
+            </tfoot>
+        </table>
+
+    <form class="col-md-9 m-auto" asp-controller="Cart" asp-action="CreateOrder">
+
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Дата аренды</label>
+            <div class="col-10">
+                <input class="form-control" type="date" value="2021-05-19" id="example-date-input" name="DateOfBeginingRent">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Дата возврата</label>
+            <div class="col-10">
+                <input class="form-control" type="date" value="2021-05-19" id="example-date-input" name="DateOfEndingRent">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Описание (опишите дополнения или пожелания к заказу)</label>
+            <textarea class="form-control mt-1" id="message" name="Description" placeholder="Message" rows="8"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <input onchange="setCost()" type="checkbox" class="form-check-input" id="costDelivery" name="IsNeedDelivery" value="false">
+            <label  class="form-check-label">Нужна доставка</label>
+        </div>
+
+        <div class="row">
+
+            <div class="col text-end mt-2">
+                <button type="submit" class="btn btn-success btn-lg px-3">Оформить заказ</button>
+                @*<a class="btn btn-success btn-lg px-3" asp-controller="Cart" asp-action="CreateOrder">Оформить заказ</a>*@
+            </div>
+        </div>
+    </form>
+
+    <div class="text-center">        
+        <a class="btn btn-primary" asp-controller="Equipment" asp-action="Index">Продолжить покупки</a>
+    </div>
+</div>
+<script>
+    function setCost() {
+
+        if (document.getElementById('costDelivery').checked) {
+            document.getElementById('costDelivery').value = true;
+            document.getElementById('costWithDelivery').innerHTML = 'Итого: @Model.Equipments.Select(item => item.Сost).Sum() + (15 за доставку) р ';
+
+        }
+        else {
+            document.getElementById('costDelivery').value = false;
+            document.getElementById('costWithDelivery').innerHTML = 'Итого: @Model.Equipments.Select(item => item.Сost).Sum() р';
+        }
+
+    }
+</script>

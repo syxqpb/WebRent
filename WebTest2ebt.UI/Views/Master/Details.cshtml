@@ -1,0 +1,493 @@
+﻿@using WebTest2ebt.DataAccessLayer.Models.Identity
+@using Microsoft.AspNetCore.Identity
+@using WebTest2ebt.UI.AppConfiguration
+@using WebTest2ebt.BusinessLogicLayer.Models
+
+@model EquipmentDetail
+    <!-- Ну как бы тут Оборудование используется, надо убрать -->
+
+    @inject SignInManager<IdentityBuyer> SignInManager
+    @inject UserManager<IdentityBuyer> UserManager
+
+
+    @{ ViewData["Title"] = "Товар"; }
+    <!-- Open Content -->
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <!--Тоже самое, так надо-->
+                        @if (Model.Photos.Count != default)
+                        {
+                            <img class="card-img img-fluid" src="@Model.Photos.First()" alt="Card image cap" id="product-detail"> }
+                        else
+                        {
+                            <img class="card-img img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H9LgUZtfSeY2xJieiMuJdbQTToIcwDOkFTSq9ewjtBY6n_ArugarHah0jv6Q7dKtt0o&usqp=CAU" alt="Card image cap" id="product-detail">}
+                    </div>
+                    <div class="row">
+
+                        <!--Start Carousel Wrapper-->
+                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                            <!-- Slides -->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                <!-- slide -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <!--Тоже самое, так надо-->
+                                                @if (Model.Photos.Count != default)
+                                                {
+                                                    <img class="card-img img-fluid" src="@Model.Photos.First()"> }
+                                                else
+                                                {
+                                                    <img class="card-img img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H9LgUZtfSeY2xJieiMuJdbQTToIcwDOkFTSq9ewjtBY6n_ArugarHah0jv6Q7dKtt0o&usqp=CAU">}
+                                            </a>
+                                        </div>
+                                        @foreach (var item in Model.Photos.Skip(1))
+                                        {
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid" src="@item" alt="Product Image">
+                                                </a>
+                                            </div>}
+
+
+
+                                    </div>
+                                </div>
+                                <!--/.First slide-->
+
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                        <!--End Carousel Wrapper-->
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2">@Model.Equipment.Name</h1>
+                            <p class="h3 py-2">Цена: @Model.Equipment.Сost р</p>
+
+
+                            <h6>Description:</h6>
+                            <p>Походу в бд нету поля ОПИСАНИЯ !</p>
+
+                            @if (Model.Equipment is Camera)
+                            {
+                                var camera = Model.Equipment as Camera;
+
+                                <div>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Производитель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Manufacturer</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Модель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Model</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Тип камеры:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.TypeOfCamera</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Количество ключевых точек:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.CountOfMatrixPoint МГп</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Максимальное разрешение:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.MaxFrameSize</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Максимальное ко-во кадров/c:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.MaxFrameRate к/с</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Тип батареи:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.BatteryType</strong></p>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Вес:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Weight.ToString() г</strong></p>
+                                        </li>
+                                    </ul>
+                                </div>}
+
+                            else if (Model.Equipment is FlashBulb)
+                            {
+
+                                var camera = Model.Equipment as FlashBulb;
+                                <div>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Производитель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Manufacturer</strong></p>
+                                        </li>
+                                    </ul>
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Модель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Model</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Ведущее число (ISO):</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.LeadingNumber</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Источник света (Название ламп):</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.LightSource</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Наличие LCD экрана:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@if (camera.AvailabilityOfLCDScreen) { Html.Display("Да"); } else { Html.Display("Нет"); }</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Возможность поворота головки:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@if (camera.HeadRotation) { Html.Display("Да"); } else { Html.Display("Нет"); }</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Источник питания:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.PowerSupply</strong></p>
+                                        </li>
+                                    </ul>
+                                </div> }
+
+                            else if (Model.Equipment is Microphone)
+                            {
+
+                                var camera = Model.Equipment as Microphone;
+                                <div>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Производитель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Manufacturer</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Модель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Model</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Внешнее питание:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Supply</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Частотный диапазон:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.FrequencyRange</strong></p>
+                                        </li>
+                                    </ul>
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Направленность (Фокус):</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Focus</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Разъём:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Connector</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Вес:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Weight.ToString()</strong></p>
+                                        </li>
+                                    </ul>
+
+
+                                </div> }
+                            else if (Model.Equipment is Lens)
+                            {
+
+                                var camera = Model.Equipment as Lens;
+
+                                <div>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Производитель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Manufacturer</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Модель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Model</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Тип объектива:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.TypeOfLens</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Фокусное расстояние:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.FocalLength мм</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Светосила (Диафрагма):</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Diaphragm</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Диаметр резьбы для светофильтра:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.FilterDiameter</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Крепление объектива (модель камеры):</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.LensMount</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Наличие автоматической фокусировки:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.IsAutoFocus</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Вес:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Weight.ToString()</strong></p>
+                                        </li>
+                                    </ul>
+
+                                </div> }
+                            else if (Model.Equipment is Battery)
+                            {
+                                var camera = Model.Equipment as Battery;
+
+                                <div>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Производитель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Manufacturer</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Модель:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Model</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Тип аккумулятора:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.TypeOfBattery</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Емкость:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.Capacity</strong></p>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <h6>Напряжения питания:</h6>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <p class="text-muted"><strong>@camera.SupplyVoltage</strong></p>
+                                        </li>
+                                    </ul>
+
+                                </div>}
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                @if (User.IsInRole(RolesNames.User))
+                                {
+                                    <!-- Формачка добавления в карзину -->
+                                    <form action="" method="GET">
+                                        <input type="hidden" name="product-title" value="Activewear">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <!-- ВВОД ДАТЫ -->
+                                                <input type="text" name="date" value="01-01-2022" id="datepicker">
+                                            </div>
+                                            <div class="col-auto">
+                                                <ul class="list-inline pb-3">
+                                                    <li class="list-inline-item text-right">
+                                                        Кол-во дней:
+                                                        <input type="hidden" name="days" id="product-quanity" value="1">
+                                                    </li>
+                                                    <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+                                                    <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                                    <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pb-3">
+                                            <div class="col d-grid">
+                                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
+                                            </div>
+                                            <div class="col d-grid">
+                                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+
+                                }
+                                else if (User.IsInRole(RolesNames.Admin))
+                                {
+                                    <h2>Админ панель:</h2>
+                                    <button class="btn btn-success btn-lg">Редактировать товар</button>
+                                }
+
+                            }
+                            else
+                            {
+                                <h2>Для добавления товара в корзину авторизируйтесь 😡</h2>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Close Content -->

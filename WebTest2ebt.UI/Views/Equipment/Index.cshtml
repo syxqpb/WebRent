@@ -1,0 +1,125 @@
+﻿@using WebTest2ebt.UI.AppConfiguration
+@model EquipmentsViewModel
+
+@{ ViewData["Title"] = "Прокат"; }
+
+
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <h1 class="h2 pb-4">Категории</h1>
+            <ul class="list-unstyled templatemo-accordion">
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Аппаратура
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li><a class="text-decoration-none" href="#">Камеры</a></li>
+                        <li><a class="text-decoration-none" href="#">Микрофоны</a></li>
+                    </ul>
+                </li>
+
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Аксессуары
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+                    <ul class="collapse show list-unstyled pl-3">
+                        <li><a class="text-decoration-none" href="#">Объективы</a></li>
+                        <li><a class="text-decoration-none" href="#">Световая аппаратура</a></li>
+                        <li><a class="text-decoration-none" href="#">Аккумуляторы</a></li>
+                    </ul>
+                </li>                
+            </ul>
+        </div>
+
+        <div class="col-lg-9">            
+            <div class="row">
+                @foreach (var item in Model.Equipments)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <a asp-controller="Equipment" asp-action="Details" asp-route-id="@item.Id">
+                                @if (item.equipmentPhotos.Count() != default)
+                                {
+                                    <img class="card-img rounded-0 img-fluid" src="@item.equipmentPhotos.First().PathToFile">
+                                }
+                                else
+                                {
+                                    <img class="card-img rounded-0 img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H9LgUZtfSeY2xJieiMuJdbQTToIcwDOkFTSq9ewjtBY6n_ArugarHah0jv6Q7dKtt0o&usqp=CAU">
+                                } 
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <a asp-controller="Equipment" asp-action="Details" asp-route-id="@item.Id" class="h3 text-decoration-none">@item.Name</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <!-- Место для дополнительного описания если понадобитса -->
+                                    <li></li>
+                                    <li class="pt-2">                                        
+                                    </li>
+                                </ul>
+                                
+                                <p class="text-center mb-0">@item.Сost р</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div div="row">
+                <ul class="pagination pagination-lg justify-content-end">
+                    @{
+                        const int PagesLinks = 3, DefaultPageCount = 0;
+
+                        if (Model.PageInfo.PageNumber - PagesLinks > DefaultPageCount && Model.Equipments.Count() > DefaultPageCount)
+                        {
+                            <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="1" class="page-link">1</a></li>
+                            <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber - 1)" class="page-link">Предыдущая</a></li>
+
+                            for (int index = PagesLinks; index > DefaultPageCount; index--)
+                            {
+                                <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber - index)" class="page-link">@(Model.PageInfo.PageNumber - index)</a></li>
+                            }
+                        }
+                        else
+                        {
+                            for (int index = 1; index < Model.PageInfo.PageNumber; index++)
+                            {
+                                <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@index" class="page-link">@index</a></li>
+                            }
+                        }
+                        @if (Model.PageInfo.TotalItems > 6)
+                        {
+                            <li class="page-item active"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@Model.PageInfo.PageNumber" class="page-link">@Model.PageInfo.PageNumber</a></li>
+                        }
+
+                        if (Model.PageInfo.PageNumber + PagesLinks <= Model.PageInfo.TotalPages)
+                        {
+                            for (int index = DefaultPageCount + 1; index <= PagesLinks; index++)
+                            {
+                                <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber + index)" class="page-link">@(Model.PageInfo.PageNumber + index)</a></li>
+                            }
+
+                            <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@(Model.PageInfo.PageNumber + 1)" class="page-link">Следующая</a></li>
+                            <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@Model.PageInfo.TotalPages" class="page-link">@Model.PageInfo.TotalPages</a></li>
+                        }
+                        else
+                        {
+                            for (int index = Model.PageInfo.PageNumber + 1; index <= Model.PageInfo.TotalPages; index++)
+                            {
+                                <li class="page-item"><a asp-controller="Equipment" asp-action="Index" asp-route-pageNumber="@index" class="page-link">@index</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Content -->

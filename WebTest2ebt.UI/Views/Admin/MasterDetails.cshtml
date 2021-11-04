@@ -1,0 +1,163 @@
+﻿@{ ViewData["Title"] = "Редактирование сотрудника (Админ панель)"; }
+
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Панель администратора</h1>
+            <ul class="templatemo-accordion">
+
+
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Orders">Текущие заказы</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="OrdersHistory">История заказов</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="BuyersList">Пользователи</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="MasterDetails">Сотрудники</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="Services">Сервисы сотрудников</a>
+                <br />
+                <a class="text-decoration-none" asp-controller="Admin" asp-action="EquipmentDetails">Оборудование</a>
+                <br />
+
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Start  -->
+            <div class="container py-5">
+                <div class="row py-5">
+
+                    @* Форма редактирования основной информации мастера *@
+
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+                        <h1>Редактирование сотрудника</h1>
+
+                        <div class="mb-3">
+                            <label>Имя</label>
+                            <input type="text" class="form-control mt-1" placeholder="Имя" value="Пётр">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Фамилия</label>
+                            <input type="text" class="form-control mt-1" placeholder="Фамилия" value="Гуёвич">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Телефон</label>
+                            <input type="text" class="form-control mt-1" placeholder="Телефон" value="+375259371292">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control mt-1" placeholder="Email" value="keklolazaz@site.ru">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Цена</label>
+                            <input type="number" class="form-control mt-1" placeholder="Цена" value=200>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Описание</label>
+                            <input type="text" class="form-control mt-1" placeholder="Описание" value="Бла бла">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Принадлежит сервису:</label>
+                            <select name="sel">
+                                <!-- В value можно писать айдишник сервиса :D -->
+                                <option value="1">Сервис 1</option>
+                                <option value="2">Сервис 2</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>
+                                <input id="Enable" name="Enable" type="checkbox" value="true" placeholder="Kek">
+                                <a> Занят в текущий момент</a>
+                            </label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Сохранить информацию</button>
+                            </div>
+                        </div>
+
+                    </form>
+                  
+
+
+
+
+                    @* Форма редактирования изображений мастера *@
+
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+                        <h1>Редактирование фотографий</h1>
+
+
+                        <!-- Форечем вот этот ров-->
+                        <div class="row mb-3">
+                            <div class="col-lg-7">
+                                <label>Изображение:</label>
+                                <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Удалить изображение</button>
+                            </div>
+                        </div>
+
+                        <!-- Форечем вот этот ров-->
+                        <div class="row mb-3">
+                            <div class="col-lg-7">
+                                <label>Изображение:</label>
+                                <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Удалить изображение</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Сохранить изображения</button>
+                            </div>
+                        </div>
+
+                    </form>
+             
+
+
+                    @* Форма редактирования изображений мастера *@
+
+                    <form class="col-md-9 m-auto mb-5" method="post" role="form">
+
+                        <h1>Добавление изображения</h1>
+
+                        <div class="mb-3">
+                            <label>Изображение:</label>
+                            <input type="text" class="form-control mt-1" placeholder="URL" value="http://keklol.vs">
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Добавить изображения</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+            <!-- End  -->
+        </div>
+    </div>
+</div>
